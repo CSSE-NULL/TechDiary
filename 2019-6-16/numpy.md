@@ -113,7 +113,7 @@ x.sum(axis=1) # rows (second dimension)
 ## Broadcasting
 
 当出现形状不匹配时，广播规则如下图所示：
-![broadcast](figures/broadcast.png)
+![broadcast](figures/broadcast.PNG)
 
 ## Array shape manipulation
 
