@@ -1,4 +1,4 @@
-#Numpy
+# Numpy
 
 Python是一种弱类型的语言，在初始化变量时无需进行类型声明，这在带来写代码的方便时也为代码运行带来了负担。为了更好地进行数学计算，Numpy应运而生。它对类型的实现更接近C语言，从而大大减少了开销，并且提供了一系列高级操作来方便数学计算，从而成为了数据处理中不可或缺的一环。
 ![nympy_python](figures/intro.png)
@@ -22,7 +22,7 @@ d = np.diag([1,2,3,4])
 # random
 a = np.random.rand(4) # uniform in [0, 1]
 b = np.random.randn(4) # Gaussian
-c = np.random.randint(4) # Return random integers from `low` (inclusive) to `high` (exclusive).
+c = np.random.randint(1,4,(3,4)) # Return random integers from `low` (inclusive) to `high` (exclusive).
 ```
 
 ## 查看array属性
@@ -100,9 +100,70 @@ np.sin(a)
 np.log(a)
 np.exp(a)
 
-# Transposition
+# 转置
 a.T
+
+# 统计
+np.sum(x)
+x.sum(axis=0) # columns (first dimension)
+x.sum(axis=1) # rows (second dimension)
+
 ```
 
+## Broadcasting
+
+当出现形状不匹配时，广播规则如下：
+![](figures/broadcast.png)
+
+## Array shape manipulation
+
+### Flattening
+
+```python
+a.ravel()
+a.flatten()
+```
+
+### Reshaping
+
+```python
+b.reshape((2, 3))
+```
+
+### Adding a dimension
+
+```python
+a[:, np.newaxis]
+```
+
+### Dimension shufing
+
+```python
+a.transpose(1, 2, 0)
+```
+
+### Resizing
+
+```python
+a.resize((4,3,4))
+np.resize(a,(5,4,3))
+```
+
+### Sorting
+
+```python
+np.sort(a, axis=1)
+a.sort(axis=1)
+np.argsort(a)
+```
+
+## Loading data fles
+
+```python
+data = np.loadtxt('data/populations.txt')
+np.savetxt('pop2.txt', data)
+np.save('pop.npy', data)
+np.load('pop.npy')
+```
 
 
